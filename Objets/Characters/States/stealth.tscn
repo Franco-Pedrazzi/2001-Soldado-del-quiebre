@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://o54jnphjeby8"]
+
+[ext_resource type="Script" uid="uid://bh24fg2fcldai" path="res://Objets/Characters/States/stealth.gd" id="1_73cf5"]
+
+[node name="Stealth" type="Node" unique_id=2131833181]
+script = ExtResource("1_73cf5")

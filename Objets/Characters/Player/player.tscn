@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bndddn57u7ca5"]
+
+[ext_resource type="Script" uid="uid://dei8te6t7mqh3" path="res://Objets/Characters/Player/player.gd" id="1_5y5mg"]
+[ext_resource type="Texture2D" uid="uid://b0g3ebl44r2c3" path="res://icon.svg" id="2_hv7mt"]
+[ext_resource type="PackedScene" uid="uid://cl748w8fprxj6" path="res://Objets/Characters/States/state_machine.tscn" id="3_yklsb"]
+[ext_resource type="PackedScene" uid="uid://bg8rpo725dog0" path="res://Objets/Characters/States/idle.tscn" id="4_d4e2f"]
+[ext_resource type="PackedScene" uid="uid://cswtxqj358jer" path="res://Objets/Characters/States/move.tscn" id="5_cdgnk"]
+[ext_resource type="PackedScene" uid="uid://cool8g8mxcjl4" path="res://Objets/Characters/States/run.tscn" id="6_blik6"]
+[ext_resource type="PackedScene" uid="uid://djikhfs38ii0w" path="res://Objets/Characters/States/jump.tscn" id="7_artkk"]
+[ext_resource type="PackedScene" uid="uid://o5y7bwwxch8g" path="res://Objets/Characters/States/crouched.tscn" id="8_tbqdr"]
+[ext_resource type="PackedScene" uid="uid://o54jnphjeby8" path="res://Objets/Characters/States/stealth.tscn" id="9_gwa4w"]
+[ext_resource type="PackedScene" uid="uid://dp6i4nd3sbtyb" path="res://Objets/Characters/States/roll.tscn" id="10_1lxq0"]
+[ext_resource type="PackedScene" uid="uid://nbdce5ors7ng" path="res://Objets/Characters/States/action_left_hand.tscn" id="11_blik6"]
+[ext_resource type="PackedScene" uid="uid://c2ax1oj1xg2s4" path="res://Objets/Characters/States/action_rigth_hand.tscn" id="12_artkk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11bpl"]
+atlas = ExtResource("2_hv7mt")
+region = Rect2(16, 16, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qho3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11bpl")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgn4q"]
+radius = 32.0
+height = 114.0
+
+[node name="Player" type="CharacterBody2D" unique_id=294110880]
+script = ExtResource("1_5y5mg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086233672]
+sprite_frames = SubResource("SpriteFrames_qho3q")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=183105663]
+shape = SubResource("CapsuleShape2D_cgn4q")
+
+[node name="State_Machine" parent="." unique_id=1059784330 instance=ExtResource("3_yklsb")]
+
+[node name="Idle" parent="State_Machine" unique_id=137508918 instance=ExtResource("4_d4e2f")]
+
+[node name="Move" parent="State_Machine" unique_id=453338450 instance=ExtResource("5_cdgnk")]
+
+[node name="Run" parent="State_Machine" unique_id=1817133354 instance=ExtResource("6_blik6")]
+
+[node name="Jump" parent="State_Machine" unique_id=1722413970 instance=ExtResource("7_artkk")]
+
+[node name="Crouched" parent="State_Machine" unique_id=1474639818 instance=ExtResource("8_tbqdr")]
+
+[node name="Stealth" parent="State_Machine" unique_id=2131833181 instance=ExtResource("9_gwa4w")]
+
+[node name="Roll" parent="State_Machine" unique_id=1298254877 instance=ExtResource("10_1lxq0")]
+
+[node name="Action_Left_Hand" parent="State_Machine" unique_id=520815838 instance=ExtResource("11_blik6")]
+
+[node name="Action_Rigth_Hand" parent="State_Machine" unique_id=824303545 instance=ExtResource("12_artkk")]
