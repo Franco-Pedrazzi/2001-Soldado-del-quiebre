@@ -1,7 +1,6 @@
 extends State_base
 
 func on_physics_process(delta: float) -> void:
-	controlled_node.play_animation(controlled_node.animations.idle)
 	controlled_node.velocity.x=0
 	
 	handle_gravity(delta)

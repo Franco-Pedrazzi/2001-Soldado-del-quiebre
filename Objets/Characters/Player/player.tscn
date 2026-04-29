@@ -42,7 +42,8 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=183105663]
 shape = SubResource("CapsuleShape2D_cgn4q")
 
-[node name="State_Machine" parent="." unique_id=1059784330 instance=ExtResource("3_yklsb")]
+[node name="State_Machine" parent="." unique_id=1059784330 node_paths=PackedStringArray("default_state") instance=ExtResource("3_yklsb")]
+default_state = NodePath("Idle")
 
 [node name="Idle" parent="State_Machine" unique_id=137508918 instance=ExtResource("4_d4e2f")]
 

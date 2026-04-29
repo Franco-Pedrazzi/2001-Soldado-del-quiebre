@@ -1,7 +1,7 @@
 extends Node
 class_name State_base
 
-@onready var controlled_node:Node=self.owner
+var controlled_node:Node=self.owner
 
 var gravity:float= ProjectSettings.get_setting("physics/2d/default_gravity")
 
