@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://l3uwi5xewsfh"]
+
+[ext_resource type="Texture2D" uid="uid://cflcr3ttvhh5p" path="res://UI/Assets/background.png" id="1_vk7q2"]
+[ext_resource type="Texture2D" uid="uid://dyc01eplosx3y" path="res://UI/Assets/forgurond.png" id="2_svt7w"]
+[ext_resource type="Script" uid="uid://wica73w6t55h" path="res://UI/Menu/foregound.gd" id="3_23b81"]
+[ext_resource type="Texture2D" uid="uid://2lkktshcyygr" path="res://UI/Assets/part.png" id="4_ghw63"]
+[ext_resource type="Texture2D" uid="uid://c5ew8goi1ffjx" path="res://UI/Assets/ch.png" id="5_aqva8"]
+[ext_resource type="Texture2D" uid="uid://cmfjwbsw3o67" path="res://UI/Assets/near.png" id="6_hyp5l"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(52, 0)
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+position = Vector2(525.99976, 333.99985)
+scale = Vector2(0.5999997, 0.5999997)
+texture = ExtResource("1_vk7q2")
+
+[node name="Foregound" type="Sprite2D" parent="Node2D"]
+position = Vector2(525.99976, 333.99985)
+scale = Vector2(0.5999997, 0.5999997)
+texture = ExtResource("2_svt7w")
+script = ExtResource("3_23b81")
+
+[node name="Particles" type="Sprite2D" parent="Node2D"]
+position = Vector2(525.99976, 333.99985)
+scale = Vector2(0.5999997, 0.5999997)
+texture = ExtResource("4_ghw63")
+
+[node name="Character" type="Sprite2D" parent="Node2D"]
+position = Vector2(525.99976, 333.99985)
+scale = Vector2(0.5999997, 0.5999997)
+texture = ExtResource("5_aqva8")
+
+[node name="NearParticles" type="Sprite2D" parent="Node2D"]
+position = Vector2(525.99976, 333.99985)
+scale = Vector2(0.5999997, 0.5999997)
+texture = ExtResource("6_hyp5l")
