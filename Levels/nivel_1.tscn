@@ -4,19 +4,27 @@
 [ext_resource type="Texture2D" uid="uid://b0g3ebl44r2c3" path="res://icon.svg" id="2_vqh5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3h4h"]
-size = Vector2(1168, 152.5)
+size = Vector2(1168, 150.25)
 
 [node name="Nivel_1" type="Node2D" unique_id=155872077]
 
-[node name="Player" parent="." unique_id=294110880 instance=ExtResource("1_707ci")]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1445782134]
+offset_right = 1397.0
+offset_bottom = 574.0
+color = Color(0.36282945, 0.36282945, 0.36282945, 1)
+
+[node name="Player" parent="." unique_id=719470820 instance=ExtResource("1_707ci")]
 position = Vector2(582, 157)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1559181180]
+zoom = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=268604122]
 position = Vector2(573, 304)
 scale = Vector2(8.921875, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1495636025]
-position = Vector2(0.44833374, 10)
+position = Vector2(0.44833374, 11.125)
 scale = Vector2(0.11208406, 1)
 shape = SubResource("RectangleShape2D_b3h4h")
 
