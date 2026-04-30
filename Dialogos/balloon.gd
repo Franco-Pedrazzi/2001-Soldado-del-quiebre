@@ -5,6 +5,9 @@ extends CanvasLayer
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
 
+## Portrait del character
+@onready var portrait: TextureRect = $Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Portrait
+
 ## Start from a given title when using balloon as a [Node] in a scene.
 @export var start_from_title: String = ""
 
@@ -132,6 +135,12 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	var portrait_path: String = "res://Objects/Characters/%s/portrait.png" % dialogue_line.character
+	if ResourceLoader.exists(portrait_path):
+		portrait.texture = load(portrait_path)
+	else:
+		portrait.texture = null
+
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

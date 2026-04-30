@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cqffjaun11m4g"
+path="res://.godot/imported/prueba.dialogue-5cb10cc9074f5208ad996cd37751934c.tres"
+
+[deps]
+
+source_file="res://Dialogos/Dialogos(escritura)/prueba.dialogue"
+dest_files=["res://.godot/imported/prueba.dialogue-5cb10cc9074f5208ad996cd37751934c.tres"]
+
+[params]
+
+defaults=true
