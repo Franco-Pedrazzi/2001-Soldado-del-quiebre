@@ -7,6 +7,7 @@
 size = Vector2(1168, 150.25)
 
 [node name="Nivel_1" type="Node2D" unique_id=155872077]
+position = Vector2(4, 87)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1445782134]
 offset_right = 1397.0

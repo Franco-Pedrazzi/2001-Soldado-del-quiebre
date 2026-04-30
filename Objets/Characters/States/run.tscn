@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cool8g8mxcjl4"]
-
-[ext_resource type="Script" uid="uid://ccuc3sh854uyp" path="res://Objets/Characters/States/run.gd" id="1_q6ey5"]
-
-[node name="Run" type="Node" unique_id=1817133354]
-script = ExtResource("1_q6ey5")

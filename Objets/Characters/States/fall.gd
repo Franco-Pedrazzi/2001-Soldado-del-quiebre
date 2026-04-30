@@ -11,9 +11,6 @@ func on_physics_process(delta: float) -> void:
 	controlled_node.velocity.x=direction*controlled_node.speed
 	
 	if controlled_node.velocity.y==0 and controlled_node.velocity.x==0:
-		if not Input.is_action_pressed("Crouch"):
-			state_machine.change_to("Crouched")
-		else:
-			state_machine.change_to("Idle")
+		state_machine.change_to("Idle")
 	elif controlled_node.velocity.y==0:
 		state_machine.change_to("Move")
