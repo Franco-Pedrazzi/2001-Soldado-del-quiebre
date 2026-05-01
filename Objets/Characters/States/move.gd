@@ -12,6 +12,9 @@ func on_physics_process(delta: float) -> void:
 
 	if controlled_node.velocity==Vector2(0,0):
 		state_machine.change_to("Idle")
+			
+	if controlled_node.velocity.y>0:
+			state_machine.change_to("Fall")
 		
 func on_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Jump"):

@@ -118,6 +118,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lxq0"]
+size = Vector2(27, 30)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgn4q"]
 radius = 3.0
 height = 26.0
@@ -126,7 +129,10 @@ height = 26.0
 radius = 3.0
 height = 14.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_waxq6"]
+
 [node name="Player" type="CharacterBody2D" unique_id=294110880]
+collision_layer = 2
 script = ExtResource("1_5y5mg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086233672]
@@ -144,6 +150,30 @@ visible = false
 position = Vector2(0, 11)
 target_position = Vector2(-9, 0)
 
+[node name="Mele" type="Area2D" parent="AnimatedSprite2D" unique_id=971655938]
+collision_layer = 32
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Mele" unique_id=101775075]
+position = Vector2(-13.5, 0)
+shape = SubResource("RectangleShape2D_1lxq0")
+disabled = true
+debug_color = Color(0.9805837, 0, 0.3824172, 0.41960785)
+
+[node name="Interactive_Box" type="Area2D" parent="AnimatedSprite2D" unique_id=1044144888]
+collision_layer = 128
+collision_mask = 68
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Interactive_Box" unique_id=1636351570]
+position = Vector2(-13.5, 0)
+shape = SubResource("RectangleShape2D_1lxq0")
+disabled = true
+debug_color = Color(2.4065375e-08, 0.5417988, 0.17373273, 0.41960785)
+
+[node name="Bullet" type="RayCast2D" parent="." unique_id=1720135397]
+target_position = Vector2(-59, 0)
+collision_mask = 13
+
 [node name="Stand_up_collition" type="CollisionShape2D" parent="." unique_id=183105663]
 visible = false
 position = Vector2(0, 2)
@@ -154,6 +184,14 @@ visible = false
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_1lxq0")
 debug_color = Color(0, 0.65061754, 0.10042784, 0.41960785)
+
+[node name="Hit_box" type="Area2D" parent="." unique_id=664580900]
+collision_layer = 8
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box" unique_id=1744116180]
+visible = false
+shape = SubResource("CapsuleShape2D_waxq6")
 
 [node name="State_Machine" parent="." unique_id=1059784330 node_paths=PackedStringArray("default_state") instance=ExtResource("3_yklsb")]
 default_state = NodePath("Idle")
@@ -175,7 +213,3 @@ default_state = NodePath("Idle")
 [node name="Action_Rigth_Hand" parent="State_Machine" unique_id=824303545 instance=ExtResource("12_artkk")]
 
 [node name="Climb" parent="State_Machine" unique_id=29894792 instance=ExtResource("16_1lxq0")]
-
-[node name="Bullet" type="RayCast2D" parent="." unique_id=1720135397]
-target_position = Vector2(-59, 0)
-collision_mask = 13

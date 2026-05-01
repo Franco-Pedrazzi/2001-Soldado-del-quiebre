@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cslyc033pvlma" path="res://Objets/Tile_maps/ugly_city.tscn" id="2_707ci"]
 [ext_resource type="PackedScene" uid="uid://lixr6q4g1iyh" path="res://Objets/Characters/Npcs/dummy.tscn" id="3_vqh5e"]
 [ext_resource type="PackedScene" uid="uid://dkqv2s6wv6vun" path="res://Objets/Items/rock.tscn" id="4_b3h4h"]
+[ext_resource type="Script" uid="uid://dvja64sfqdiho" path="res://Objets/Items/Itema_base.gd" id="5_i8alq"]
+[ext_resource type="PackedScene" uid="uid://c8m7uxcscjgpo" path="res://Objets/Items/item.tscn" id="6_g7ppg"]
+[ext_resource type="PackedScene" uid="uid://do85pg3dcvjr7" path="res://Objets/Items/steal_bar.tscn" id="6_hrwxd"]
 
 [node name="Nivel_1" type="Node2D" unique_id=155872077]
 position = Vector2(4, 87)
@@ -15,7 +18,7 @@ color = Color(3.85046e-07, 0.43057197, 0.33587343, 1)
 
 [node name="Player" parent="." unique_id=719470820 node_paths=PackedStringArray("Left_hand", "Right_hand") instance=ExtResource("1_707ci")]
 position = Vector2(593, 318)
-Left_hand = NodePath("../Rock")
+Left_hand = NodePath("../Steal_bar")
 Right_hand = NodePath("../Rock")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1559181180]
@@ -29,3 +32,12 @@ layer_0/tile_data = PackedInt32Array(589789, 0, 0, 589790, 0, 0, 589791, 0, 0, 5
 position = Vector2(455, 316)
 
 [node name="Rock" parent="." unique_id=1287587268 instance=ExtResource("4_b3h4h")]
+script = ExtResource("5_i8alq")
+kind = "Bullet"
+
+[node name="Item" parent="Rock" unique_id=1435743609 instance=ExtResource("6_g7ppg")]
+position = Vector2(534, 410)
+
+[node name="Steal_bar" parent="." unique_id=947535543 instance=ExtResource("6_hrwxd")]
+durability = 3
+kind = "Mele"

@@ -10,17 +10,21 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var bullet: RayCast2D = $Bullet
+@onready var mele_collision: CollisionShape2D = $AnimatedSprite2D/Mele/CollisionShape2D
 
 @export var Left_hand:Item_base=null
 @export var Right_hand:Item_base=null
 
+@onready var hit_box: Area2D = $Hit_box
+
+@onready var Interactive_Box_collition: CollisionShape2D = $AnimatedSprite2D/Interactive_Box/CollisionShape2D
+
+var hand_using=""
 
 var gravity:float= ProjectSettings.get_setting("physics/2d/default_gravity")
+
 var direction=1
-
 var direction_y=0
-
-var on_wall=false
 
 func _physics_process(delta: float) -> void:
 	direction=-Input.get_axis("Right","Left")

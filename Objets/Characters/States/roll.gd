@@ -16,13 +16,14 @@ func on_physics_process(delta: float) -> void:
 	controlled_node.animated_sprite_2d.play("Crouched")
 	
 	
-	if controlled_node.velocity==Vector2(0,0):
+	if controlled_node.velocity.x==0:
 		if direction==0:
 			state_machine.change_to("Crouched")
 		else:
 			controlled_node.stand_up_collition.disabled=false
 			state_machine.change_to("Move")
-	
+
+
 		
 func on_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Jump"):
