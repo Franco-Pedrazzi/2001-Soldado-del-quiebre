@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dei8te6t7mqh3" path="res://Objets/Characters/Player/player.gd" id="1_5y5mg"]
 [ext_resource type="Texture2D" uid="uid://0acceiok4ctr" path="res://Assets/characters/Nueva carpeta/Mati Crouched.png" id="2_1lxq0"]
 [ext_resource type="Texture2D" uid="uid://denoj1e4ky38" path="res://Assets/characters/Nueva carpeta/Mati Idle.png" id="2_blik6"]
+[ext_resource type="Texture2D" uid="uid://ioynch3pylw4" path="res://Assets/characters/Nueva carpeta/Mati climg.png" id="2_waxq6"]
 [ext_resource type="Texture2D" uid="uid://b63q76q86f02k" path="res://Assets/characters/Nueva carpeta/Mati Run.png" id="3_artkk"]
 [ext_resource type="Texture2D" uid="uid://cfsgy56q73gyt" path="res://Assets/characters/Nueva carpeta/Mati Jump.png" id="3_gwa4w"]
 [ext_resource type="PackedScene" uid="uid://cl748w8fprxj6" path="res://Objets/Characters/States/state_machine.tscn" id="3_yklsb"]
@@ -14,6 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://dp6i4nd3sbtyb" path="res://Objets/Characters/States/roll.tscn" id="10_1lxq0"]
 [ext_resource type="PackedScene" uid="uid://nbdce5ors7ng" path="res://Objets/Characters/States/action_left_hand.tscn" id="11_blik6"]
 [ext_resource type="PackedScene" uid="uid://c2ax1oj1xg2s4" path="res://Objets/Characters/States/action_rigth_hand.tscn" id="12_artkk"]
+[ext_resource type="Script" uid="uid://brx7naiteghpp" path="res://Objets/Characters/States/clim.gd" id="15_gwa4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xk5h"]
+atlas = ExtResource("2_waxq6")
+region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wk3j"]
 atlas = ExtResource("2_1lxq0")
@@ -53,6 +59,14 @@ region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qho3q"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xk5h")
+}],
+"loop": true,
+"name": &"Clim",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1wk3j")
@@ -113,8 +127,18 @@ script = ExtResource("1_5y5mg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086233672]
 sprite_frames = SubResource("SpriteFrames_qho3q")
-animation = &"Crouched"
+animation = &"Idle"
 autoplay = "Idle"
+
+[node name="Body_up" type="RayCast2D" parent="AnimatedSprite2D" unique_id=676597199]
+visible = false
+position = Vector2(0, -8)
+target_position = Vector2(-9, 0)
+
+[node name="Body_Down" type="RayCast2D" parent="AnimatedSprite2D" unique_id=372911850]
+visible = false
+position = Vector2(0, 11)
+target_position = Vector2(-9, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=183105663]
 visible = false
@@ -139,3 +163,6 @@ default_state = NodePath("Idle")
 [node name="Action_Left_Hand" parent="State_Machine" unique_id=520815838 instance=ExtResource("11_blik6")]
 
 [node name="Action_Rigth_Hand" parent="State_Machine" unique_id=824303545 instance=ExtResource("12_artkk")]
+
+[node name="Clim" type="Node" parent="State_Machine" unique_id=1900771202]
+script = ExtResource("15_gwa4w")

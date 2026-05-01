@@ -21,10 +21,14 @@ func on_input(event: InputEvent) -> void:
 		if can_roll:
 			delay_roll()
 			state_machine.change_to("Roll")
+
+	if controlled_node.body_up.is_colliding() and (Input.is_action_pressed("Up") or Input.is_action_pressed("Crouch")):
+		state_machine.change_to("Clim")
+
 		
 func delay_roll():
 	can_roll=false
-	print(8)
+
 	await get_tree().create_timer(0.4).timeout
 	
 	can_roll=true

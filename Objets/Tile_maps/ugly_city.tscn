@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cslyc033pvlma"]
+
+[ext_resource type="Texture2D" uid="uid://b4ncwn743xkqw" path="res://Assets/Tiles/City.png" id="1_1jli8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0185q"]
+texture = ExtResource("1_1jli8")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, -8, -8, -8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 8, -8, 8, 8, 0, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, -8, 0, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_g3gaj"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_0185q")
+
+[node name="Ugly city" type="TileMap" unique_id=950376386]
+tile_set = SubResource("TileSet_g3gaj")
+format = 2

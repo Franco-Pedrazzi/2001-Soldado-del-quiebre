@@ -1,14 +1,15 @@
 extends State_base
 var direction
-var rolling=false
+
+func start():
+	direction=controlled_node.direction	
+	controlled_node.velocity.x=direction*controlled_node.roll_velocity
+	if direction!=0:
+		controlled_node.animated_sprite_2d.scale.x=abs(controlled_node.animated_sprite_2d.scale.x)*-direction
+	await get_tree().create_timer(0.2).timeout
+	controlled_node.velocity.x=0
+
 func on_physics_process(delta: float) -> void:
-	direction=controlled_node.direction
-	
-	if not rolling:
-		controlled_node.velocity.x=direction*controlled_node.roll_velocity
-		if direction!=0:
-			controlled_node.animated_sprite_2d.scale.x=abs(controlled_node.animated_sprite_2d.scale.x)*-direction
-		delay()
 	
 	
 	controlled_node.animated_sprite_2d.play("Crouched")
@@ -24,10 +25,3 @@ func on_physics_process(delta: float) -> void:
 func on_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Jump"):
 		state_machine.change_to("Jump")
-
-
-func delay():
-	rolling=true
-	await get_tree().create_timer(0.2).timeout
-	controlled_node.velocity.x=0
-	rolling=false
