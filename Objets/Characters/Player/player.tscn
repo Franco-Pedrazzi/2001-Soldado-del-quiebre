@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dp6i4nd3sbtyb" path="res://Objets/Characters/States/roll.tscn" id="10_1lxq0"]
 [ext_resource type="PackedScene" uid="uid://nbdce5ors7ng" path="res://Objets/Characters/States/action_left_hand.tscn" id="11_blik6"]
 [ext_resource type="PackedScene" uid="uid://c2ax1oj1xg2s4" path="res://Objets/Characters/States/action_rigth_hand.tscn" id="12_artkk"]
-[ext_resource type="Script" uid="uid://brx7naiteghpp" path="res://Objets/Characters/States/clim.gd" id="15_gwa4w"]
+[ext_resource type="PackedScene" uid="uid://kdplfgigr5o6" path="res://Objets/Characters/States/climb.tscn" id="16_1lxq0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xk5h"]
 atlas = ExtResource("2_waxq6")
@@ -64,7 +64,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1xk5h")
 }],
 "loop": true,
-"name": &"Clim",
+"name": &"Climb",
 "speed": 5.0
 }, {
 "frames": [{
@@ -122,12 +122,16 @@ animations = [{
 radius = 3.0
 height = 26.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1lxq0"]
+radius = 3.0
+height = 14.0
+
 [node name="Player" type="CharacterBody2D" unique_id=294110880]
 script = ExtResource("1_5y5mg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1086233672]
 sprite_frames = SubResource("SpriteFrames_qho3q")
-animation = &"Idle"
+animation = &"Crouched"
 autoplay = "Idle"
 
 [node name="Body_up" type="RayCast2D" parent="AnimatedSprite2D" unique_id=676597199]
@@ -140,10 +144,16 @@ visible = false
 position = Vector2(0, 11)
 target_position = Vector2(-9, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=183105663]
+[node name="Stand_up_collition" type="CollisionShape2D" parent="." unique_id=183105663]
 visible = false
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_cgn4q")
+
+[node name="Crouched_collition" type="CollisionShape2D" parent="." unique_id=439786734]
+visible = false
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_1lxq0")
+debug_color = Color(0, 0.65061754, 0.10042784, 0.41960785)
 
 [node name="State_Machine" parent="." unique_id=1059784330 node_paths=PackedStringArray("default_state") instance=ExtResource("3_yklsb")]
 default_state = NodePath("Idle")
@@ -164,5 +174,8 @@ default_state = NodePath("Idle")
 
 [node name="Action_Rigth_Hand" parent="State_Machine" unique_id=824303545 instance=ExtResource("12_artkk")]
 
-[node name="Clim" type="Node" parent="State_Machine" unique_id=1900771202]
-script = ExtResource("15_gwa4w")
+[node name="Climb" parent="State_Machine" unique_id=29894792 instance=ExtResource("16_1lxq0")]
+
+[node name="Bullet" type="RayCast2D" parent="." unique_id=1720135397]
+target_position = Vector2(-59, 0)
+collision_mask = 13

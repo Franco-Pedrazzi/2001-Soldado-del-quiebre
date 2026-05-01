@@ -20,4 +20,4 @@ func on_input(event: InputEvent) -> void:
 		state_machine.change_to("Action_Rigth_Hand")
 	
 	if controlled_node.body_up.is_colliding() and Input.is_action_pressed("Up"):
-		state_machine.change_to("Clim")
+		state_machine.change_to("Climb")

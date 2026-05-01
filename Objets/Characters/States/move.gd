@@ -1,6 +1,6 @@
 extends State_base
 var direction
-var can_roll=true
+
 func on_physics_process(delta: float) -> void:
 	direction=controlled_node.direction
 	if direction!=0: 
@@ -18,18 +18,13 @@ func on_input(event: InputEvent) -> void:
 		state_machine.change_to("Jump")
 		
 	if Input.is_action_pressed("Crouch"):
-		if can_roll:
-			delay_roll()
+		if controlled_node.can_roll:
+			controlled_node.delay_roll()
 			state_machine.change_to("Roll")
 
 	if controlled_node.body_up.is_colliding() and (Input.is_action_pressed("Up") or Input.is_action_pressed("Crouch")):
-		state_machine.change_to("Clim")
+		state_machine.change_to("Climb")
 
 		
-func delay_roll():
-	can_roll=false
 
-	await get_tree().create_timer(0.4).timeout
-	
-	can_roll=true
 		

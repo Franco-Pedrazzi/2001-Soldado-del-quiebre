@@ -16,4 +16,4 @@ func on_physics_process(delta: float) -> void:
 func on_input(event: InputEvent) -> void:
 
 	if controlled_node.body_up.is_colliding() and (Input.is_action_pressed("Up") or Input.is_action_pressed("Crouch")):
-		state_machine.change_to("Clim")
+		state_machine.change_to("Climb")
