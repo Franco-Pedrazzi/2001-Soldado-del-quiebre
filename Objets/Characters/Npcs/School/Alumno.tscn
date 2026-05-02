@@ -1,15 +1,25 @@
 [gd_scene format=3 uid="uid://eimxgllfbav0"]
 
 [ext_resource type="Script" uid="uid://mxgjwrifkggd" path="res://Objets/Characters/Npcs/School/alumno.gd" id="1_ysktd"]
+[ext_resource type="Texture2D" uid="uid://cdymoy0r1c5yr" path="res://Assets/characters/npcs/alum Crouched.png" id="2_dujgx"]
 [ext_resource type="Texture2D" uid="uid://cck40yb1t6e6b" path="res://Assets/characters/npcs/alum Idle.png" id="2_ysktd"]
 [ext_resource type="Texture2D" uid="uid://7pxim6rntu10" path="res://Assets/characters/npcs/alum run.png" id="3_kmoj1"]
 [ext_resource type="PackedScene" uid="uid://cl748w8fprxj6" path="res://Objets/Characters/States/state_machine.tscn" id="7_cg3ci"]
 [ext_resource type="PackedScene" uid="uid://dkmu7i15llj3v" path="res://Objets/Characters/States/fall.tscn" id="7_kmoj1"]
+[ext_resource type="PackedScene" uid="uid://o5y7bwwxch8g" path="res://Objets/Characters/States/crouched.tscn" id="8_7c7cj"]
 [ext_resource type="PackedScene" uid="uid://bg8rpo725dog0" path="res://Objets/Characters/States/idle.tscn" id="8_mmalh"]
 [ext_resource type="PackedScene" uid="uid://cswtxqj358jer" path="res://Objets/Characters/States/move.tscn" id="9_di4q7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_isb48"]
+atlas = ExtResource("2_dujgx")
+region = Rect2(0, 0, 50, 50)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7c7cj"]
 atlas = ExtResource("2_ysktd")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmoj1"]
+atlas = ExtResource("3_kmoj1")
 region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dujgx"]
@@ -32,11 +42,27 @@ region = Rect2(0, 150, 50, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_isb48")
+}],
+"loop": true,
+"name": &"Crouched",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7c7cj")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmoj1")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -56,6 +82,14 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dujgx"]
+radius = 3.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mpg2p"]
+radius = 3.0
+height = 14.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yojkx"]
 
 [node name="Alumno" type="CharacterBody2D" unique_id=912240403]
@@ -65,12 +99,19 @@ speed = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=243034913]
 sprite_frames = SubResource("SpriteFrames_exoxj")
-animation = &"Run"
+animation = &"Crouched"
 autoplay = "Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=677788508]
+[node name="Stand_up_collition" type="CollisionShape2D" parent="." unique_id=675241816]
 visible = false
-shape = SubResource("CapsuleShape2D_yojkx")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_dujgx")
+
+[node name="Crouched_collition" type="CollisionShape2D" parent="." unique_id=771830225]
+visible = false
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_mpg2p")
+debug_color = Color(0, 0.65061754, 0.10042784, 0.41960785)
 
 [node name="Hit_box" type="Area2D" parent="." unique_id=771377325]
 collision_layer = 8
@@ -88,5 +129,7 @@ default_state = NodePath("Move")
 [node name="Move" parent="State_Machine" unique_id=453338450 instance=ExtResource("9_di4q7")]
 
 [node name="Fall" parent="State_Machine" unique_id=1275433795 instance=ExtResource("7_kmoj1")]
+
+[node name="Crouched" parent="State_Machine" unique_id=1474639818 instance=ExtResource("8_7c7cj")]
 
 [connection signal="area_entered" from="Hit_box" to="." method="_on_hit_box_area_entered"]

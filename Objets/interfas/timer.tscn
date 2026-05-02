@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dpkox2trkv2cj"]
 
 [ext_resource type="Script" uid="uid://c4gx1pmph7noy" path="res://Objets/interfas/timer.gd" id="1_cv107"]
+[ext_resource type="Texture2D" uid="uid://cmlkoyafn3b65" path="res://Assets/characters/Items/Clock.png" id="2_jsaia"]
 
 [node name="Timer" type="Node2D" unique_id=1861266688]
 script = ExtResource("1_cv107")
@@ -15,3 +16,7 @@ color = Color(0, 0.41371948, 0.506278, 1)
 wait_time = 20.0
 one_shot = true
 autostart = true
+
+[node name="Clock" type="Sprite2D" parent="." unique_id=646378464]
+position = Vector2(-2, 6)
+texture = ExtResource("2_jsaia")
