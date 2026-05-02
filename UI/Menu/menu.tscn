@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://l3uwi5xewsfh"]
+[gd_scene load_steps=34 format=3 uid="uid://l3uwi5xewsfh"]
 
 [ext_resource type="AudioStream" uid="uid://bal8rde1nlv4x" path="res://UI/Menu/composiia-depois-da-batalha-173739.mp3" id="1_ls8lc"]
+[ext_resource type="Script" uid="uid://bsyyhfcxevckt" path="res://UI/Menu/menu.gd" id="1_svt7w"]
 [ext_resource type="Texture2D" uid="uid://hjyw5lm82d1y" path="res://UI/Menu/Fondo.png" id="2_vk7q2"]
 [ext_resource type="Texture2D" uid="uid://dclavye4x2vqw" path="res://UI/Menu/Titulo.png" id="3_svt7w"]
 [ext_resource type="Script" uid="uid://b8b6rdl63br3m" path="res://UI/Menu/iniciar.gd" id="4_23b81"]
+[ext_resource type="Script" uid="uid://ck41qulsofjwt" path="res://UI/Menu/salir.gd" id="5_23b81"]
 [ext_resource type="Texture2D" uid="uid://28av4364tg6d" path="res://UI/Menu/Iniciar.png" id="5_ghw63"]
-[ext_resource type="Texture2D" uid="uid://b1ci5abierexc" path="res://UI/Menu/Iniciar_seleccionado.png" id="5_vk7q2"]
+[ext_resource type="Texture2D" uid="uid://bswp3boeke8cd" path="res://UI/Menu/Salir.png" id="7_svt7w"]
 
 [sub_resource type="Animation" id="Animation_aqva8"]
 length = 0.001
@@ -20,6 +22,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(285, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Iniciar/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(138, 28)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Salir/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(133, 39)]
 }
 
 [sub_resource type="Animation" id="Animation_hyp5l"]
@@ -37,6 +63,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(285, -94), Vector2(285, 200)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Iniciar/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(138, 458), Vector2(138, 28)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Salir/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(133, 475), Vector2(133, 39)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v6gp1"]
 _data = {
@@ -44,27 +94,49 @@ _data = {
 &"new_animation": SubResource("Animation_hyp5l")
 }
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_svt7w"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_vk7q2")
-}],
-"loop": true,
-"name": &"choose",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_ghw63")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23b81"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_avu7c"]
-size = Vector2(262, 71)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghw63"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqva8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hyp5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6gp1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avu7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yih0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rel4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0od4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5wmu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uuys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_to3yq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_10uw0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8352y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bcdni"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cofc6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5adqv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ope71"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jt8p1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ys1ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfrqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_160w1"]
 
 [node name="Menu" type="Control" unique_id=391909374]
 layout_mode = 3
@@ -73,10 +145,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_svt7w")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=719121575]
 stream = ExtResource("1_ls8lc")
-volume_db = -80.0
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=745516644]
 position = Vector2(572, 316)
@@ -93,15 +165,50 @@ libraries = {
 &"": SubResource("AnimationLibrary_v6gp1")
 }
 
-[node name="Area2D" type="Area2D" parent="." unique_id=227594000]
+[node name="Salir" type="Button" parent="." unique_id=944416268]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 335.0
+offset_right = 949.0
+offset_bottom = 398.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_23b81")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ghw63")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aqva8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hyp5l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v6gp1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_avu7c")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2yih0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rel4o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k0od4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w5wmu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5uuys")
+script = ExtResource("5_23b81")
+
+[node name="Sprite2D" type="Sprite2D" parent="Salir" unique_id=537210179]
+position = Vector2(133, 39)
+scale = Vector2(0.263916, 0.26391602)
+texture = ExtResource("7_svt7w")
+
+[node name="Iniciar" type="Button" parent="." unique_id=1224344988]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 257.0
+offset_right = 948.0
+offset_bottom = 320.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_to3yq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_10uw0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8352y")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_bcdni")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cofc6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5adqv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ope71")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jt8p1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ys1ty")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mfrqp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_160w1")
 script = ExtResource("4_23b81")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1908525100]
-position = Vector2(810.7499, 293.5)
-scale = Vector2(0.28222656, 0.28222656)
-sprite_frames = SubResource("SpriteFrames_svt7w")
-animation = &"choose"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1536244838]
-position = Vector2(808, 297.5)
-shape = SubResource("RectangleShape2D_avu7c")
+[node name="Sprite2D" type="Sprite2D" parent="Iniciar" unique_id=1111609824]
+position = Vector2(138, 28)
+scale = Vector2(0.263916, 0.26391602)
+texture = ExtResource("5_ghw63")
