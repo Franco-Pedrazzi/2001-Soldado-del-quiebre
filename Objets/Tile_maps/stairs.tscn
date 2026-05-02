@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dbvbtgmhkyqtp"]
+
+[ext_resource type="PackedScene" uid="uid://cslyc033pvlma" path="res://Objets/Tile_maps/ugly_city.tscn" id="1_0wxng"]
+[ext_resource type="Script" uid="uid://dadibob0ejn5t" path="res://Objets/Tile_maps/stairs.gd" id="1_85ton"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_85ton"]
+a = Vector2(-8, 20)
+b = Vector2(24, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wxng"]
+size = Vector2(33, 17)
+
+[node name="Stairs" type="StaticBody2D" unique_id=1505116232]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_85ton")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1909092821]
+shape = SubResource("SegmentShape2D_85ton")
+one_way_collision = true
+
+[node name="Ugly city" parent="." unique_id=950376386 instance=ExtResource("1_0wxng")]
+layer_0/tile_data = PackedInt32Array(0, 131072, 2)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=499468537]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1258796118]
+position = Vector2(8.5, 10)
+shape = SubResource("RectangleShape2D_0wxng")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

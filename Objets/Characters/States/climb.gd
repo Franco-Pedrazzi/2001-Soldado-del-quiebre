@@ -1,7 +1,6 @@
 extends State_base
 var direction_y
 var init_direction_x
-var direction_x
 var can_roll=true
 
 var corner_up=false
@@ -13,7 +12,6 @@ func start():
 
 func on_physics_process(delta: float) -> void:
 	direction_y=controlled_node.direction_y
-	direction_x=controlled_node.direction
 	controlled_node.animated_sprite_2d.play("Climb")
 
 	if controlled_node.velocity==Vector2(0,0):
@@ -45,13 +43,16 @@ func on_physics_process(delta: float) -> void:
 			state_machine.change_to("Fall")
 	else:
 		controlled_node.velocity.y=direction_y*controlled_node.Climb_velocity
+		
 func on_input(event: InputEvent) -> void:
+	
+	var direction_x=-Input.get_axis("Right","Left")
+	
 	if Input.is_action_pressed("Jump"):
 		state_machine.change_to("Jump")
-		
+	
 	if direction_x!=init_direction_x and direction_x!=0:
 		controlled_node.velocity.y=controlled_node.Jump_stength
-		controlled_node.velocity.x=controlled_node.speed*direction_x
 		state_machine.change_to("Fall")
 
 		

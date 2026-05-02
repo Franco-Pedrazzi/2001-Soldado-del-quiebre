@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bjbxs8dw6l1gp"]
+
+[ext_resource type="PackedScene" uid="uid://cslyc033pvlma" path="res://Objets/Tile_maps/ugly_city.tscn" id="1_6ysor"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6ysor"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t386"]
+size = Vector2(24.5, 18)
+
+[node name="Desk" type="RigidBody2D" unique_id=1452664167]
+physics_material_override = SubResource("PhysicsMaterial_6ysor")
+freeze_mode = 1
+
+[node name="Ugly city" parent="." unique_id=950376386 instance=ExtResource("1_6ysor")]
+position = Vector2(-8, 15)
+layer_0/tile_data = PackedInt32Array(-65536, 0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=640193072]
+position = Vector2(-1.75, 14)
+shape = SubResource("RectangleShape2D_8t386")

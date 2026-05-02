@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://eimxgllfbav0"]
+
+[ext_resource type="Script" uid="uid://mxgjwrifkggd" path="res://Objets/Characters/Npcs/School/alumno.gd" id="1_ysktd"]
+[ext_resource type="Texture2D" uid="uid://cck40yb1t6e6b" path="res://Assets/characters/npcs/alum Idle.png" id="2_ysktd"]
+[ext_resource type="Texture2D" uid="uid://7pxim6rntu10" path="res://Assets/characters/npcs/alum run.png" id="3_kmoj1"]
+[ext_resource type="PackedScene" uid="uid://cl748w8fprxj6" path="res://Objets/Characters/States/state_machine.tscn" id="7_cg3ci"]
+[ext_resource type="PackedScene" uid="uid://dkmu7i15llj3v" path="res://Objets/Characters/States/fall.tscn" id="7_kmoj1"]
+[ext_resource type="PackedScene" uid="uid://bg8rpo725dog0" path="res://Objets/Characters/States/idle.tscn" id="8_mmalh"]
+[ext_resource type="PackedScene" uid="uid://cswtxqj358jer" path="res://Objets/Characters/States/move.tscn" id="9_di4q7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c7cj"]
+atlas = ExtResource("2_ysktd")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dujgx"]
+atlas = ExtResource("3_kmoj1")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpg2p"]
+atlas = ExtResource("3_kmoj1")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4ucr"]
+atlas = ExtResource("3_kmoj1")
+region = Rect2(0, 100, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2h5x"]
+atlas = ExtResource("3_kmoj1")
+region = Rect2(0, 150, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exoxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c7cj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dujgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpg2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4ucr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2h5x")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yojkx"]
+
+[node name="Alumno" type="CharacterBody2D" unique_id=912240403]
+collision_layer = 4
+script = ExtResource("1_ysktd")
+speed = 200
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=243034913]
+sprite_frames = SubResource("SpriteFrames_exoxj")
+animation = &"Run"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=677788508]
+visible = false
+shape = SubResource("CapsuleShape2D_yojkx")
+
+[node name="Hit_box" type="Area2D" parent="." unique_id=771377325]
+collision_layer = 8
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box" unique_id=969561108]
+visible = false
+shape = SubResource("CapsuleShape2D_yojkx")
+
+[node name="State_Machine" parent="." unique_id=1059784330 node_paths=PackedStringArray("default_state") instance=ExtResource("7_cg3ci")]
+default_state = NodePath("Move")
+
+[node name="Idle" parent="State_Machine" unique_id=137508918 instance=ExtResource("8_mmalh")]
+
+[node name="Move" parent="State_Machine" unique_id=453338450 instance=ExtResource("9_di4q7")]
+
+[node name="Fall" parent="State_Machine" unique_id=1275433795 instance=ExtResource("7_kmoj1")]
+
+[connection signal="area_entered" from="Hit_box" to="." method="_on_hit_box_area_entered"]

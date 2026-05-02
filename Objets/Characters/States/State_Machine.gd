@@ -1,7 +1,7 @@
 extends Node
 class_name State_Machine
 
-@onready var controlled_node=self.owner
+@onready var controlled_node = self.owner
 
 @export var default_state:State_base
 
@@ -34,13 +34,13 @@ func _physics_process(delta:float) -> void:
 		current_state.on_physics_process(delta)
 
 func _input(event: InputEvent) -> void:
-	if current_state and current_state.has_method("on_input") and (controlled_node as Player):
+	if current_state and current_state.has_method("on_input") and (controlled_node is Player):
 		current_state.on_input(event)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if current_state and current_state.has_method("on_unhandled_input") and (controlled_node as Player):
+	if current_state and current_state.has_method("on_unhandled_input") and (controlled_node is Player):
 		current_state.on_unhandled_input(event)
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if current_state and current_state.has_method("on_unhandled_key_input") and (controlled_node as Player):
+	if current_state and current_state.has_method("on_unhandled_key_input") and (controlled_node is Player):
 		current_state.on_unhandled_key_input(event)
