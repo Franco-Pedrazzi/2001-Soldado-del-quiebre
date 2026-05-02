@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cflcr3ttvhh5p"
-path="res://.godot/imported/background.png-ed3238a82600b8783da4b37829c05e4c.ctex"
+uid="uid://bswp3boeke8cd"
+path="res://.godot/imported/Salir.png-5529717e94611ccd5bba6600c9e50d82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Assets/background.png"
-dest_files=["res://.godot/imported/background.png-ed3238a82600b8783da4b37829c05e4c.ctex"]
+source_file="res://UI/Menu/Salir.png"
+dest_files=["res://.godot/imported/Salir.png-5529717e94611ccd5bba6600c9e50d82.ctex"]
 
 [params]
 

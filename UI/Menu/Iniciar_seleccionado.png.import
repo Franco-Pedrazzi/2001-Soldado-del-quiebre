@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyc01eplosx3y"
-path="res://.godot/imported/forgurond.png-7cafd6579abc57c5ba237a09347a7b04.ctex"
+uid="uid://b1ci5abierexc"
+path="res://.godot/imported/Iniciar_seleccionado.png-5f3408b9d2a0a71f5c651357b65de94f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Assets/forgurond.png"
-dest_files=["res://.godot/imported/forgurond.png-7cafd6579abc57c5ba237a09347a7b04.ctex"]
+source_file="res://UI/Menu/Iniciar_seleccionado.png"
+dest_files=["res://.godot/imported/Iniciar_seleccionado.png-5f3408b9d2a0a71f5c651357b65de94f.ctex"]
 
 [params]
 
